@@ -1,0 +1,403 @@
+body {
+    font-family: 'Droid Serif', serif;
+    font-size: 14px;
+    color: #2f2f2f;
+    background-color: #f9f7f1;
+}
+
+header {
+    font-family: 'HeaderFont', serif;
+    font-size: 70px;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 72px;
+    margin-bottom: 20px;
+
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.head {
+    text-align: center;
+    position: relative;
+
+
+}
+
+.headerobjectswrapper {
+}
+
+.subhead {
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #2f2f2f;
+    border-top: 2px solid #2f2f2f;
+    padding: 12px 0 12px 0;
+
+}
+
+.weatherforcastbox {
+    position: relative;
+    width: 12%;
+    left: 10px;
+    border: 3px double #2f2f2f;
+    padding: 10px 15px 10px 15px;
+    line-height: 20px;
+    display: inline-block;
+    margin: 0 50px 20px -360px;
+}
+
+.content {
+    font-size: 0;
+    line-height: 0;
+    word-spacing: -.31em;
+    display: inline-block;
+    margin: 30px 2% 0 2%;
+
+
+}
+
+.collumns {
+
+}
+
+
+.collumn {
+    font-size: 14px;
+    line-height: 20px;
+    width: 20%;
+    display: inline-block;
+    padding: 0 1% 0 1%;
+    vertical-align: top;
+    margin-bottom: 50px;
+    transition: all .7s;
+}
+
+.collumn:nth-child(2) {
+    width: 25%;
+
+}
+
+.chartmini {
+    margin-left: 30px;
+
+}
+
+
+.collumn:nth-child(3) {
+    border-left: 1px solid #2f2f2f;
+    border-right: 1px solid #2f2f2f;
+    width: 50%;
+}
+
+.collumn:nth-child(4) {
+    margin-left: 30px;
+    width: 15%;
+
+}
+
+
+.data-table-big {
+    height: 70vh; /* Set table height to 70% of the viewport height */
+    width: 100%; /* Set table width to fill the container */
+    border-collapse: collapse; /* Remove space between table cells */
+}
+
+.data-table {
+    height: 70vh; /* Set table height to 70% of the viewport height */
+    width: 100%; /* Set table width to fill the container */
+    border-collapse: collapse; /* Remove space between table cells */
+}
+
+.data-table th,
+.data-table td,
+.data-table-big th,
+.data-table-big td {
+    padding: 10px;
+    text-align: center;
+}
+
+.data-table th,
+.data-table-big th {
+    background-color: #f9f7f1; /* Header row background color */
+}
+
+.data-table tbody tr:nth-child(odd),
+.data-table-big tbody tr:nth-child(odd) {
+    background-color: #fefdf9; /* Odd row background color */
+}
+
+.data-table tbody tr:nth-child(even),
+.data-table-big tbody tr:nth-child(even) {
+    background-color: #bdbdbd; /* Even row background color */
+}
+
+.header-cell {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.data-cell {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.column-1 table td:nth-child(2),
+.column-1 table td:nth-child(3) {
+    font-size: 20px;
+}
+
+
+.collumn .headline {
+    text-align: center;
+    line-height: normal;
+    font-family: 'Playfair Display', serif;
+    display: block;
+    margin: 0 auto;
+
+
+}
+
+.collumn .headline.hl1 {
+    font-weight: 700;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 10px 0 10px 0;
+
+}
+
+.collumn .headline.hl2 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 24px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.collumn .headline.hl2:before {
+    border-top: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    height: 7px;
+    display: block;
+    margin: 0 auto;
+}
+
+.collumn .headline.hl2:after {
+    border-bottom: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    height: 13px;
+    display: block;
+    margin: 0 auto;
+
+}
+
+.collumn .headline.hl3 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 36px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+    margin-bottom: 40px;
+}
+
+.collumn .headline.hl4 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.collumn .headline.hl4:before {
+    border-top: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    height: 7px;
+    display: block;
+    margin: 0 auto;
+}
+
+.collumn .headline.hl4:after {
+    border-bottom: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    height: 10px;
+    display: block;
+    margin: 0 auto;
+
+}
+
+.collumn .headline.hl5 {
+    font-weight: 400;
+    font-size: 42px;
+    text-transform: uppercase;
+    font-style: italic;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.collumn .headline.hl6 {
+    font-weight: 400;
+    font-size: 42px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.collumn .headline.hl6:before {
+    border-top: 1px solid #2f2f2f;
+    content: '';
+    width: 350px;
+    height: 7px;
+    display: block;
+    margin: 0 auto 45px;
+}
+
+
+
+.collumn .headline.hl7 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    display: block;
+    padding: 10px 0 10px 0;
+}
+
+.collumn .headline.hl8 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.collumn .headline.hl9 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.collumn .headline.hl10 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.collumn .citation {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    line-height: 44px;
+    /*font-style: italic;*/
+    text-align: center;
+    font-weight: 400;
+    display: block;
+    margin: 40px 0 40px 0;
+    font-feature-settings: "liga", "dlig";
+
+}
+
+.collumn .citation:before {
+    border-top: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    height: 16px;
+    display: block;
+    margin: 0 auto;
+}
+
+.collumn .citation:after {
+    border-bottom: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    height: 16px;
+    display: block;
+    margin: 0 auto;
+}
+
+.collumn .figure {
+    margin: 0 0 20px;
+}
+
+.collumn .figcaption {
+    font-style: italic;
+    font-size: 12px;
+}
+
+.media {
+    -webkit-filter: sepia(80%) contrast(1) opacity(0.8);
+    filter: sepia(80%) grayscale(1) contrast(1) opacity(0.8);
+    mix-blend-mode: multiply;
+    width: 100%;
+}
+
+/*________________________________________________________________________________________________________________________________*/
+/*MEDIAQUERIES*/
+@media only all and (max-width: 1300px) {
+    .weatherforcastbox {
+        display: none;
+    }
+
+}
+
+@media only all and (max-width: 1200px) {
+    .collumn {
+        width: 31%;
+    }
+
+}
+
+@media only all and (max-width: 900px) {
+    .collumn {
+        width: 47%;
+    }
+
+}
+
+@media only all and (max-width: 600px) {
+    .collumn {
+        width: 100%;
+    }
+
+    .collumn + .collumn {
+        border-left: none;
+        border-bottom: 1px solid #2f2f2f;
+    }
+
+    header {
+        max-width: 320px;
+        font-size: 60px;
+        line-height: 54px;
+        overflow: hidden;
+    }
+
+}
+
+@font-face {
+    font-family: 'HeaderFont';
+    src: url('Chomsky.otf') format('truetype');
+}
+
+.text-block p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow: hidden;
+    margin-right: 30px;
+    margin-left: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 15; /* Limit to 20 lines */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+.text-block h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 40px;
+
+}
