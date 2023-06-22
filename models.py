@@ -13,3 +13,18 @@ class Global_funds(db.Model):
     month_change = db.Column(db.String(20))
     date = db.Column(db.Date, default=date.today)
     header = db.Column(db.String(20))
+
+class Stocks(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    symbol = db.Column(db.String(10))
+    name = db.Column(db.String(60))
+    description = db.Column(db.String(150))
+    open = db.Column(db.String(20))
+    close = db.Column(db.String(20))
+    high= db.Column(db.String(20))
+    low= db.Column(db.String(20))
+    after_hours = db.Column(db.String(20))
+    date = db.Column(db.Date, default=date.today)
+
+
+

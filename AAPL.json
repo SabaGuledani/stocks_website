@@ -1,12 +1,5 @@
-{"status":"OK","from":"2023-06-21","symbol":"AAPL","open":184.9,"high":185.41,"low":182.5901,"close":183.96,"volume":4.9515697e+07,"afterHours":183.67,"preMarket":184.75}{
-    "status": "OK",
-    "from": "2023-06-21",
-    "symbol": "AAPL",
-    "open": 184.9,
-    "high": 185.41,
-    "low": 182.5901,
-    "close": 183.96,
-    "volume": 49515697.0,
-    "afterHours": 183.67,
-    "preMarket": 184.75
-}
+{"status":"OK","from":"2023-06-21",
+    "symbol":"AAPL","open":184.9,
+    "high":185.41,"low":182.5901,
+    "close":183.96,"volume":4.9515697e+07,
+    "afterHours":183.67,"preMarket":184.75}

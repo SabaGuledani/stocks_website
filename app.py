@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for, render_template
 from models import db, Global_funds
 from datetime import date
 
-
+#hello aji
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///GlobalFunds.sqlite'
