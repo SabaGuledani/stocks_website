@@ -9,36 +9,6 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @app.route('/')
 def home():
     us = Global_funds.query.filter_by(date=str(date.today())).filter_by(header='us').all()
