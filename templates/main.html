@@ -3,7 +3,7 @@
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic'
           rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../static/newspaper.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!--    graph css-->
 
@@ -83,7 +83,7 @@
                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                 deserunt mollit anim id est laborum."</p>
         </div>
-        <div   class="text-block">
+        <div class="text-block">
             <h2 class="news-header">Header 2</h2>
             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -117,117 +117,35 @@
                     <th class="data-table-headers-cell" data-type="right" scope="col">Net Change</th>
                     <th class="data-table-headers-cell" data-type="right" scope="col">% Change</th>
                     <th class="data-table-headers-cell" data-type="right" scope="col">1 Month</th>
-                    <th class="data-table-headers-cell" data-type="right" scope="col">1 Year</th>
-                    <th class="data-table-headers-cell" data-type="right" scope="col">Time (EDT)</th>
+
                 </tr>
                 </thead>
                 <tbody class="data-table-body">
+                {%for stock in us%}
+
                 <tr class="data-table-row">
                     <td class="data-table-row-cell" data-type="name" scope="row">
-
-                        <div class="data-table-row-cell__link-block"> INDU:IND</div>
-                        <div class="data-table-row-cell__link-block"> DOW JONES INDUS. AVG</div>
+                        <div class="data-table-row-cell__link-block">{{stock.name}}</div>
                     </td>
                     <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">34,076.42</span></td>
+                            class="data-table-row-cell__value">{{stock.value}}</span></td>
                     <td class="data-table-row-cell data-table-row-cell__next-value_down"
                         next-value="-0.65%"><span
-                            class="data-table-row-cell__value">-222.70</span></td>
+                            class="data-table-row-cell__value">{{stock.net_change}}</span></td>
                     <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.65%</span></td>
+                            class="data-table-row-cell__value">{{stock.percent_change}}</span></td>
                     <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+1.94%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+14.01%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">10:12 AM</span></td>
+                            class="data-table-row-cell__value">{{stock.month_change}}</span></td>
                 </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
-                        <div class="data-table-row-cell__link-block"> SPX:IND</div>
-                        <div class="data-table-row-cell__link-block"> S&amp;P 500 INDEX</div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">4,390.82</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.43%"><span
-                            class="data-table-row-cell__value">-18.77</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.43%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+4.74%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+19.48%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">9:57 AM</span></td>
-                </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
-                        <div class="data-table-row-cell__link-block"> CCMP:IND</div>
-                        <div class="data-table-row-cell__link-block"> NASDAQ COMPOSITE</div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">13,663.77</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.19%"><span
-                            class="data-table-row-cell__value">-25.80</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.19%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+7.95%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+26.54%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">10:12 AM</span></td>
-                </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
+                {%endfor%}
 
-                        <div class="data-table-row-cell__link-block"> NYA:IND</div>
-                        <div class="data-table-row-cell__link-block"> NYSE COMPOSITE INDEX</div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">15,667.64</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.81%"><span
-                            class="data-table-row-cell__value">-127.48</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.81%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+2.24%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+11.14%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">9:57 AM</span></td>
-                </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
-
-                        <div class="data-table-row-cell__link-block"> SPTSX:IND</div>
-                        <div class="data-table-row-cell__link-block"> S&amp;P/TSX COMPOSITE INDEX
-                        </div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">19,805.59</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.65%"><span
-                            class="data-table-row-cell__value">-128.62</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.65%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-2.68%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+3.24%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">9:52 AM</span></td>
-                </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="data-tables first" data-view-uid="1|0_3_3">
         <div class="table-container">
-            <div class="table-container__header"><h2 class="table-container__title">Americas</h2></div>
+            <div class="table-container__header"><h2 class="table-container__title">Europe, Middle East & Africa</h2></div>
             <table class="data-table-big">
                 <thead>
                 <tr class="data-table-headers">
@@ -237,117 +155,35 @@
                     <th class="data-table-headers-cell" data-type="right" scope="col">Net Change</th>
                     <th class="data-table-headers-cell" data-type="right" scope="col">% Change</th>
                     <th class="data-table-headers-cell" data-type="right" scope="col">1 Month</th>
-                    <th class="data-table-headers-cell" data-type="right" scope="col">1 Year</th>
-                    <th class="data-table-headers-cell" data-type="right" scope="col">Time (EDT)</th>
+
                 </tr>
                 </thead>
                 <tbody class="data-table-body">
+                {%for stock in eu%}
+
                 <tr class="data-table-row">
                     <td class="data-table-row-cell" data-type="name" scope="row">
-
-                        <div class="data-table-row-cell__link-block"> INDU:IND</div>
-                        <div class="data-table-row-cell__link-block"> DOW JONES INDUS. AVG</div>
+                        <div class="data-table-row-cell__link-block">{{stock.name}}</div>
                     </td>
                     <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">34,076.42</span></td>
+                            class="data-table-row-cell__value">{{stock.value}}</span></td>
                     <td class="data-table-row-cell data-table-row-cell__next-value_down"
                         next-value="-0.65%"><span
-                            class="data-table-row-cell__value">-222.70</span></td>
+                            class="data-table-row-cell__value">{{stock.net_change}}</span></td>
                     <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.65%</span></td>
+                            class="data-table-row-cell__value">{{stock.percent_change}}</span></td>
                     <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+1.94%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+14.01%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">10:12 AM</span></td>
+                            class="data-table-row-cell__value">{{stock.month_change}}</span></td>
                 </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
-                        <div class="data-table-row-cell__link-block"> SPX:IND</div>
-                        <div class="data-table-row-cell__link-block"> S&amp;P 500 INDEX</div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">4,390.82</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.43%"><span
-                            class="data-table-row-cell__value">-18.77</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.43%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+4.74%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+19.48%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">9:57 AM</span></td>
-                </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
-                        <div class="data-table-row-cell__link-block"> CCMP:IND</div>
-                        <div class="data-table-row-cell__link-block"> NASDAQ COMPOSITE</div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">13,663.77</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.19%"><span
-                            class="data-table-row-cell__value">-25.80</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.19%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+7.95%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+26.54%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">10:12 AM</span></td>
-                </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
+                {%endfor%}
 
-                        <div class="data-table-row-cell__link-block"> NYA:IND</div>
-                        <div class="data-table-row-cell__link-block"> NYSE COMPOSITE INDEX</div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">15,667.64</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.81%"><span
-                            class="data-table-row-cell__value">-127.48</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.81%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+2.24%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+11.14%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">9:57 AM</span></td>
-                </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
-
-                        <div class="data-table-row-cell__link-block"> SPTSX:IND</div>
-                        <div class="data-table-row-cell__link-block"> S&amp;P/TSX COMPOSITE INDEX
-                        </div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">19,805.59</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.65%"><span
-                            class="data-table-row-cell__value">-128.62</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.65%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-2.68%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+3.24%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">9:52 AM</span></td>
-                </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="data-tables first" data-view-uid="1|0_3_3">
         <div class="table-container">
-            <div class="table-container__header"><h2 class="table-container__title">Americas</h2></div>
+            <div class="table-container__header"><h2 class="table-container__title">Asia Pacific</h2></div>
             <table class="data-table-big">
                 <thead>
                 <tr class="data-table-headers">
@@ -357,126 +193,45 @@
                     <th class="data-table-headers-cell" data-type="right" scope="col">Net Change</th>
                     <th class="data-table-headers-cell" data-type="right" scope="col">% Change</th>
                     <th class="data-table-headers-cell" data-type="right" scope="col">1 Month</th>
-                    <th class="data-table-headers-cell" data-type="right" scope="col">1 Year</th>
-                    <th class="data-table-headers-cell" data-type="right" scope="col">Time (EDT)</th>
+
                 </tr>
                 </thead>
                 <tbody class="data-table-body">
+                {%for stock in asia%}
+
                 <tr class="data-table-row">
                     <td class="data-table-row-cell" data-type="name" scope="row">
-
-                        <div class="data-table-row-cell__link-block"> INDU:IND</div>
-                        <div class="data-table-row-cell__link-block"> DOW JONES INDUS. AVG</div>
+                        <div class="data-table-row-cell__link-block">{{stock.name}}</div>
                     </td>
                     <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">34,076.42</span></td>
+                            class="data-table-row-cell__value">{{stock.value}}</span></td>
                     <td class="data-table-row-cell data-table-row-cell__next-value_down"
                         next-value="-0.65%"><span
-                            class="data-table-row-cell__value">-222.70</span></td>
+                            class="data-table-row-cell__value">{{stock.net_change}}</span></td>
                     <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.65%</span></td>
+                            class="data-table-row-cell__value">{{stock.percent_change}}</span></td>
                     <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+1.94%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+14.01%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">10:12 AM</span></td>
+                            class="data-table-row-cell__value">{{stock.month_change}}</span></td>
                 </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
-                        <div class="data-table-row-cell__link-block"> SPX:IND</div>
-                        <div class="data-table-row-cell__link-block"> S&amp;P 500 INDEX</div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">4,390.82</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.43%"><span
-                            class="data-table-row-cell__value">-18.77</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.43%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+4.74%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+19.48%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">9:57 AM</span></td>
-                </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
-                        <div class="data-table-row-cell__link-block"> CCMP:IND</div>
-                        <div class="data-table-row-cell__link-block"> NASDAQ COMPOSITE</div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">13,663.77</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.19%"><span
-                            class="data-table-row-cell__value">-25.80</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.19%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+7.95%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+26.54%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">10:12 AM</span></td>
-                </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
+                {%endfor%}
 
-                        <div class="data-table-row-cell__link-block"> NYA:IND</div>
-                        <div class="data-table-row-cell__link-block"> NYSE COMPOSITE INDEX</div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">15,667.64</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.81%"><span
-                            class="data-table-row-cell__value">-127.48</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.81%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+2.24%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+11.14%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">9:57 AM</span></td>
-                </tr>
-                <tr class="data-table-row">
-                    <td class="data-table-row-cell" data-type="name" scope="row">
-
-                        <div class="data-table-row-cell__link-block"> SPTSX:IND</div>
-                        <div class="data-table-row-cell__link-block"> S&amp;P/TSX COMPOSITE INDEX
-                        </div>
-                    </td>
-                    <td class="data-table-row-cell"><span
-                            class="data-table-row-cell__value">19,805.59</span></td>
-                    <td class="data-table-row-cell data-table-row-cell__next-value_down"
-                        next-value="-0.65%"><span
-                            class="data-table-row-cell__value">-128.62</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-0.65%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">-2.68%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">+3.24%</span></td>
-                    <td class="data-table-row-cell hide-on-mobile"><span
-                            class="data-table-row-cell__value">9:52 AM</span></td>
-                </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
 
 </div>
 <div class="collumn">
     <div class="head"><span class="headline hl3">Latest stock news</span>
         <p><span class="headline hl4">Latest trending stocks</span></p>
-         <!--        graph html-->
+        <!--        graph html-->
         <canvas id="StockChart" style="width:1000px; height:700px; margin-top: 10px; margin-bottom: 50px"></canvas>
     </div>
 
 
     <div class="column column-1">
-         <h3 class="headline hl5" style="margin-bottom:20px">currencies</h3>
+        <h3 class="headline hl5" style="margin-bottom:20px">currencies</h3>
         <table class="data-table">
             <thead>
             <tr>
@@ -515,32 +270,32 @@
             <!-- More table rows -->
             </tbody>
         </table>
-        </div>
+    </div>
 </div>
 <!--Graph script-->
 
 
 <script>
-  const ctx = document.getElementById('StockChart');
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["pink","red","blue","green","black"],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1,
-        borderColor: "#666666"
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    const ctx = document.getElementById('StockChart');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["pink", "red", "blue", "green", "black"],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1,
+                borderColor: "#666666"
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-      }
-    }
-  });
+    });
 </script>
 
 

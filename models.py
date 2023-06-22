@@ -12,3 +12,4 @@ class Global_funds(db.Model):
     percent_change = db.Column(db.String(20))
     month_change = db.Column(db.String(20))
     date = db.Column(db.Date, default=date.today)
+    header = db.Column(db.String(20))
