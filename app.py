@@ -10,8 +10,10 @@ with app.app_context():
 
 
 
-@app.route('/')
-def home():
+@app.route('/<ticker>')
+
+def home(ticker):
+
 
     return render_template('main.html')
 
