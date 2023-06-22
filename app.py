@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, render_template
-from models import db, Global_funds
+from models import db, Global_funds,Stocks
 from datetime import date
 
 #hello aji
