@@ -38,6 +38,7 @@ with app.app_context():
 
 
 
+
 @app.route('/')
 def home():
     us = Global_funds.query.filter_by(date=str(date.today())).filter_by(header='us').all()
