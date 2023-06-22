@@ -3,9 +3,13 @@
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic'
           rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../static/newspaper.css">
+<!--    graph css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <title>Newspaper Style Design Experiment</title>
     <meta name="viewport" content="width=device-width">
+
 
 
 <body>
@@ -465,12 +469,18 @@
 
 </div>
 <div class="collumn">
+
+
     <div class="head"><span class="headline hl3">Latest stock news</span>
         <p><span class="headline hl4">Latest trending stocks</span></p>
+          <!--        graph html-->
+        <canvas id="StockChart" style="width:1000px; height:700px; margin-top: 10px; margin-bottom: 50px"></canvas>
     </div>
 
 
     <div class="column column-1">
+
+        <h3 class="headline hl5" style="margin-bottom:20px">currencies</h3>
         <table class="data-table">
             <thead>
             <tr>
@@ -509,8 +519,37 @@
             <!-- More table rows -->
             </tbody>
         </table>
+
         </div>
 </div>
+
+
+<!--Graph script-->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('StockChart');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["pink","red","blue","green","black"],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1,
+        borderColor: "#666666"
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
 
 
 
