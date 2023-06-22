@@ -11,14 +11,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
-from app import db,Global_funds,app
+from app import db, Global_funds, app
+
 options = webdriver.ChromeOptions()
 # options.add_argument('--headless')
 options.add_argument("window-size=1920,1080")  # ase dayeneba schirdeba rom ekranze ar gaxsnas saiti da
 # konkretuli zomebi mieces rom info wamoigos
 wd = webdriver.Chrome(options=options)
-wd.implicitly_wait(15)
-
+wd.implicitly_wait(5)
 
 url = "https://www.bloomberg.com/markets/stocks"
 
@@ -32,23 +32,28 @@ time.sleep(2)
 content = wd.page_source
 soup = BeautifulSoup(content, 'html.parser')  # vparsavt
 
-first_table = soup.find('div',{"class":'data-tables first'})
-other_tables = soup.find_all('div',{"class":'data-tables'})
-other_tables.insert(0,first_table)
+other_tables = soup.find_all('div', {"class": 'data-tables'})
+i = 0
 for table in other_tables:
     table_rows = table.find_all('tr', {"class": "data-table-row"})
     for tr in table_rows:
-        all_td = tr.find_all('td',{'class':'data-table-row-cell'})
+        if i == 0:
+            header = "us"
+        elif i == 1:
+            header = "eu"
+        elif i == 2:
+            header = 'asia'
+        all_td = tr.find_all('td', {'class': 'data-table-row-cell'})
         row_values_list = []
         name = (tr.find('th').find('a').find_all('div')[1]).text
         for td in all_td:
-            value = td.find('span',{'class':"data-table-row-cell__value"}).text
+            value = td.find('span', {'class': "data-table-row-cell__value"}).text
             row_values_list.append(value)
-        fund = Global_funds(name=name,value=row_values_list[0],
-                           net_change=row_values_list[1],percent_change=row_values_list[2],
-                           month_change=row_values_list[3])
+        fund = Global_funds(name=name, value=row_values_list[0],
+                            net_change=row_values_list[1], percent_change=row_values_list[2],
+                            month_change=row_values_list[3], header=header)
         with app.app_context():
             db.session.add(fund)
             db.session.commit()
             print(f'damatda {name}')
-
+    i += 1

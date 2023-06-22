@@ -122,9 +122,9 @@
                 </tr>
                 </thead>
                 <tbody class="data-table-body">
+                {%for stock in us%}
                 <tr class="data-table-row">
                     <td class="data-table-row-cell" data-type="name" scope="row">
-
                         <div class="data-table-row-cell__link-block"> INDU:IND</div>
                         <div class="data-table-row-cell__link-block"> DOW JONES INDUS. AVG</div>
                     </td>
@@ -142,6 +142,8 @@
                     <td class="data-table-row-cell hide-on-mobile"><span
                             class="data-table-row-cell__value">10:12 AM</span></td>
                 </tr>
+
+
                 <tr class="data-table-row">
                     <td class="data-table-row-cell" data-type="name" scope="row">
                         <div class="data-table-row-cell__link-block"> SPX:IND</div>
@@ -225,6 +227,13 @@
             </table>
         </div>
     </div>
+
+
+
+
+
+
+
     <div class="data-tables first" data-view-uid="1|0_3_3">
         <div class="table-container">
             <div class="table-container__header"><h2 class="table-container__title">Americas</h2></div>
