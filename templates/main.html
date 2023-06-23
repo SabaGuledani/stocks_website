@@ -38,29 +38,19 @@
             </thead>
 
             <tbody>
+            {%for stock in stocks_left_table%}
             <tr>
                 <td>
-                    <span class="header-cell">TSLA</span><br>
-                    <span class="data-cell">Tesla inc</span>
+                    <span class="header-cell">{{stock.symbol}}</span><br>
+                    <span class="data-cell">{{stock.name}}</span>
                 </td>
-                <td>$260</td>
-                <td>+4.23</td>
+                {% set close_float = stock.close | float %}
+                {% set open_float = stock.open | float %}
+                <td>{{stock.close}}</td>
+                <td>{{(close_float - open_float)| round(2)}}</td>
             </tr>
-            <tr>
-                <td>TSLA</td>
-                <td>$260</td>
-                <td>+4.23</td>
-            </tr>
-            <tr>
-                <td>TSLA</td>
-                <td>$260</td>
-                <td>+4.23</td>
-            </tr>
-            <tr>
-                <td>TSLA</td>
-                <td>$260</td>
-                <td>+4.23</td>
-            </tr>
+            {%endfor%}
+
             </tbody>
 
             <!-- More table rows -->

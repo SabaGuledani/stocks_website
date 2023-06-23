@@ -1,47 +1,56 @@
 import sqlite3
+import time
+
 import requests
 import json
 from datetime import date
 from datetime import timedelta
 
+from models import db,Stocks
+
 today = date.today()
-date = today - timedelta(days = 1)
+date = today - timedelta(days=1)
 
-ticker = "AAPL"
 apikey = 'WI1GOdsaBMaVnImCyZqgHc__H70kDtJ5'
-url = f'https://api.polygon.io/v1/open-close/{ticker}/{date}?adjusted=true&apiKey={apikey}'
 
-url2 = f'https://api.polygon.io/v3/reference/tickers/{ticker}?apiKey={apikey}'
 
-r = requests.get(url)
-r2 = requests.get(url2)
-print(r)
-print(r.headers)
+def get_info(tickers, date=date):
+    stocks_list = []
+    counter = 0
+    for ticker in tickers:
+        if counter%5 ==0 and counter!=0:
+            time.sleep(56)
+        url = f'https://api.polygon.io/v1/open-close/{ticker}/{date}?adjusted=true&apiKey={apikey}'
+        url2 = f'https://api.polygon.io/v3/reference/tickers/{ticker}?apiKey={apikey}'
 
-result_json = r.text
-res = json.loads(result_json)
-#
-res2 = json.loads(r2.text)
+        request_open_close = requests.get(url)
+        request_ticker_info = requests.get(url2)
 
-res_structured = json.dumps(res, indent=4)
-res_structured2 = json.dumps(res2, indent=4)
-print(res_structured)
-print(res_structured2)
+        open_close_res = json.loads(request_open_close.text)
+        #
+        info_res = json.loads(request_ticker_info.text)
 
-with open(f'{ticker}.json', 'w') as file:
-    file.write(result_json)
-    json.dump(res, file, indent=4)
 
-date = res['from']
-high = res['high']
-low = res['low']
-avg = (high+low)/2
 
-#
-previous_close = res["close"]
-industry = res2["results"]['sic_description']
-print(industry)
-stock_open = res['open']
-d_range = high-low
-volume = res['volume']
-after_hours = res['afterHours']
+
+        name = info_res["results"]["name"]
+        try:
+            desc = info_res["results"]["sic_description"]
+        except:
+            desc="???"
+        stock_open = open_close_res['open']
+        close = open_close_res['close']
+        high = open_close_res['high']
+        low = open_close_res['low']
+        after_hours = open_close_res["afterHours"]
+
+        print(name)
+
+        stock_obj = Stocks(symbol=ticker, name=name, description=desc, open=stock_open,
+                           close=close, high=high, low=low, after_hours=after_hours, date=date)
+        stocks_list.append(stock_obj)
+        counter+=1
+    return stocks_list
+
+
+
