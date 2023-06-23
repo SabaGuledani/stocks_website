@@ -8,7 +8,9 @@ from yahoo_finance import get_popular_stocks
 from datetime import date
 from datetime import timedelta
 
-#hello aji
+
+today = date.today()
+yesterday = today - timedelta(days=1)
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///GlobalFunds.sqlite'

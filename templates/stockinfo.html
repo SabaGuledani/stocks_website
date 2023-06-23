@@ -8,8 +8,7 @@
           rel='stylesheet' type='text/css'>
     <style>
         .container {
-            display: flex;
-            margin: -20px,-20px;
+            /*margin: -20px,-20px;*/
             width: 100%;
         }
 
@@ -42,58 +41,26 @@
 </head>
 <body>
 <!--APPL LIST-->
+
+
 <div class="container">
+{%for ticker in tickers%}
+  {% set close_float = ticker.close | float %}
+    {% set open_float = ticker.open | float %}
     <div class="box" style="text-align: center;">
-        <h2 class="headline hl1">AAPL</h2>
-        <p class="headline hl4">$180.23</p>
-        <p class="headline hl4" style="margin-top: -20px;">+2.21%</p>
-    </div>
-    <div class="box" style="text-align: center;">
-        <h2 class="headline hl1">AAPL</h2>
-        <p class="headline hl4">$180.23</p>
-        <p class="headline hl4" style="margin-top: -20px;">+2.21%</p>
-    </div>
-    <div class="box" style="text-align: center;">
-        <h2 class="headline hl1">AAPL</h2>
-        <p class="headline hl4">$180.23</p>
-        <p class="headline hl4" style="margin-top: -20px;">+2.21%</p>
-    </div>
-    <div class="box" style="text-align: center;">
-        <h2 class="headline hl1">AAPL</h2>
-        <p class="headline hl4">$180.23</p>
-        <p class="headline hl4" style="margin-top: -20px;">+2.21%</p>
-    </div>
-
-    <div class="box" style="text-align: center;">
-        <h2 class="headline hl1">AAPL</h2>
-        <p class="headline hl4">$180.23</p>
-        <p class="headline hl4" style="margin-top: -20px;">+2.21%</p>
-    </div>
-
-    <div class="box" style="text-align: center;">
-        <h2 class="headline hl1">AAPL</h2>
-        <p class="headline hl4">$180.23</p>
-        <p class="headline hl4" style="margin-top: -20px;">+2.21%</p>
-    </div>
-
-    <div class="box" style="text-align: center;">
-        <h2 class="headline hl1">AAPL</h2>
-        <p class="headline hl4">$180.23</p>
-        <p class="headline hl4" style="margin-top: -20px;">+2.21%</p>
-    </div>
-    <div class="box" style="text-align: center;">
-        <h2 class="headline hl1">AAPL</h2>
-        <p class="headline hl4">$180.23</p>
-        <p class="headline hl4" style="margin-top: -20px;">+2.21%</p>
-    </div>
-    <div class="box" style="text-align: center;">
-        <h2 class="headline hl1">AAPL</h2>
-        <p class="headline hl4">$180.23</p>
-        <p class="headline hl4" style="margin-top: -20px;">+2.21%</p>
+        <a>
+           <h2 class="headline hl1">
+                {{ticker.symbol}}
+           </h2>
+        </a>
+        <p class="headline hl4">${{ticker.close}}</p>
+        <p class="headline hl4" style="margin-top: -20px;">{{(close_float - open_float)| round(2)}}</p>
     </div>
 {%endfor%}
 
+
 </div>
+
 
 <div style="margin-top: 20px; text-align: center;">
 
@@ -102,8 +69,9 @@
 
         <div class="table">
             <table class="table caption-top">
+
                 <caption>
-                    <h1 class="headline hl1">TSLA </h1>
+                    <h1 class="headline hl1">{{top_stock.symbol}} </h1>
                     <p style="font-size:20px; margin: -30px;margin-right: 30px; text-align:right;">Date</p>
                 </caption>
                 <thead>
@@ -117,33 +85,37 @@
                 <tbody>
                 <tr>
                     <th scope="row"></th>
-                    <td class="hl5">indusrty</td>
-                    <td class="hl5">{{ industry }}</td>
+                    <td class="hl5">Indusrty</td>
+                    <td class="hl5" style="text-transform: capitalize;">{{ top_stock.description }}</td>
+                </tr>
+                <tr>
+
+                    <th scope="row"></th>
+                    <td class="hl5">Previous Close</td>
+                    <td class="hl5">{{top_stock.close}}</td>
                 </tr>
                 <tr>
                     <th scope="row"></th>
-                    <td class="hl5">previous close</td>
-                    <td class="hl5">180</td>
+                    <td class="hl5">Open</td>
+                    <td class="hl5">{{top_stock.open}}</td>
                 </tr>
                 <tr>
-                    <th scope="row"></th>
-                    <td class="hl5">open</td>
-                    <td class="hl5">183</td>
-                </tr>
-                <tr>
+                    {% set close_float = top_stock.close | float %}
+                {% set open_float = top_stock.open | float %}
+
                     <th scope="row"></th>
                     <td class="hl5">Day Range</td>
-                    <td class="hl5">180/183</td>
+                    <td class="hl5">{{ (close_float - open_float)| round(2) }}</td>
                 </tr>
                 <tr>
                     <th scope="row"></th>
-                    <td class="hl5">52 week Range</td>
-                    <td class="hl5">150/250</td>
+                    <td class="hl5">After Hours</td>
+                    <td class="hl5">{{top_stock.after_hours}}</td>
                 </tr>
                 <tr>
                     <th scope="row"></th>
-                    <td class="hl5">P/E Ratio</td>
-                    <td class="hl5">86.3</td>
+                    <td class="hl5">Date</td>
+                    <td class="hl5">{{ top_stock.date }}</td>
                 </tr>
 
                 </tbody>

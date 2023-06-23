@@ -203,6 +203,22 @@ p {
     text-align: center;
 }
 
+
+.container .sub_title .headline.hl3{
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 70px;
+    text-align: center;
+}
+
+.container .letter_text .headline.hl3{
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 30px;
+    text-align: center;
+}
 .container .table .headline.hl1{
     font-family: 'Playfair Display', serif;
     font-weight: 700;
