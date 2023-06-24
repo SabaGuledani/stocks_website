@@ -40,7 +40,7 @@
         </p>
         <p class="headline hl3">Please send me daily updates on this address</p>
         <div class="sub-form">
-            <form class="text-center">
+            <form method="post" class="text-center">
             <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="font-size:20px;">
@@ -49,6 +49,13 @@
         </form>
         </div>
     </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% for msg in messages %}
+            <p style="font-size: 16px; text-align: center ">{{ msg }}</p>
+            {% endfor %}
+            {% endwith %}
+
 </div>
 
 </div>
