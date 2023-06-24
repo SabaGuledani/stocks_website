@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/newspaper.css">
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic'
+          rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="head">
+        <div class="headerobjectswrapper">
+            <div class="weatherforcastbox">
+                <a href="/subscription"><span style="font-style: italic;">Subscribe to<br> our newsletter</span></a>
+
+            </div>
+            <header>tbilisi morning globe</header>
+        </div>
+        <div class="subhead">{{ subhead }}</div>
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

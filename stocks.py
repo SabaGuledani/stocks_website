@@ -6,7 +6,7 @@ import json
 from datetime import date
 from datetime import timedelta
 
-from models import db,Stocks
+from models import db,Stocks,Currency
 
 today = date.today()
 date = today - timedelta(days=1)
@@ -51,6 +51,24 @@ def get_info(tickers, date=date):
         stocks_list.append(stock_obj)
         counter+=1
     return stocks_list
+def get_currency(curr_list):
+    currency_list = []
+    counter = 0
+    for curr in curr_list:
+        if counter % 5 == 0 and counter != 0:
+            time.sleep(56)
+        url = f'https://api.polygon.io/v2/aggs/ticker/{"C:"+curr}/prev?adjusted=true&apiKey={apikey}'
 
+        request_open_close = requests.get(url)
+
+        open_close_res = json.loads(request_open_close.text)
+        print(open_close_res)
+        name = open_close_res["results"][0]["T"]
+        close = open_close_res["results"][0]["o"]
+
+        curr_obj = Currency(name=name,close=close,date=today)
+        currency_list.append(curr_obj)
+        counter += 1
+    return currency_list
 
 

@@ -15,7 +15,7 @@ from models import db, Global_funds
 def get_bloomberg_data():
     bloomberg_list = []
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
+    # options.add_argument('--headless')
     options.add_argument("window-size=1920,1080")
     wd = webdriver.Chrome(options=options)
     wd.implicitly_wait(5)
@@ -23,7 +23,7 @@ def get_bloomberg_data():
     url = "https://www.bloomberg.com/markets/stocks"
 
     wd.get(url)  # aq saiti chairtveba
-    elem = WebDriverWait(wd, 15).until(
+    elem = WebDriverWait(wd, 60).until(
         EC.presence_of_element_located((By.XPATH, '//*[@id="navi-bar"]/a/img[1]'))
         # This is a dummy element
     )  # velodebit bolomde chatvirtvas

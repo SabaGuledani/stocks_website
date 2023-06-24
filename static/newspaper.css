@@ -1,8 +1,15 @@
+* {
+  margin: 0px;
+}
+
 body {
     font-family: 'Droid Serif', serif;
     font-size: 14px;
     color: #2f2f2f;
     background-color: #f9f7f1;
+}
+a{
+    color:black;
 }
 
 header {
@@ -76,24 +83,18 @@ p {
     transition: all .7s;
 }
 
-.collumn:nth-child(2) {
+.collumn:nth-child(1) {
     width: 25%;
 
 }
 
-.chartmini {
-    margin-left: 30px;
-
-}
-
-
-.collumn:nth-child(3) {
+.collumn:nth-child(2) {
     border-left: 1px solid #2f2f2f;
     border-right: 1px solid #2f2f2f;
-    width: 50%;
+    width: 45%;
 }
 
-.collumn:nth-child(4) {
+.collumn:nth-child(3) {
     margin-left: 30px;
     width: 15%;
 

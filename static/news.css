@@ -14,6 +14,25 @@ header {
     margin-bottom: 20px;
 
 }
+.header-news{
+    font-family: 'Droid Serif', serif;
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 72px;
+    margin-bottom: 20px;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.big-text {
+  margin: 0 30px;
+}
 
 p {
     margin-top: 0;
@@ -26,7 +45,9 @@ p {
 
 
 }
-
+a{
+    color:black;
+}
 .headerobjectswrapper {
 }
 
@@ -54,6 +75,14 @@ p {
     font-size: 0;
     line-height: 0;
     word-spacing: -.31em;
+    display: inline-block;
+    margin: 30px 2% 0 2%;
+
+
+}
+.content-text {
+    font-size: 24px;
+    line-height: 1.5;
     display: inline-block;
     margin: 30px 2% 0 2%;
 
@@ -284,6 +313,8 @@ p {
     box-sizing: border-box;
     padding: 10px 0 10px 0;
 }
+
+
 
 .collumn_news .citation {
     font-family: 'Playfair Display', serif;

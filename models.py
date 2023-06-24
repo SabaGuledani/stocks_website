@@ -26,5 +26,19 @@ class Stocks(db.Model):
     after_hours = db.Column(db.String(20))
     date = db.Column(db.Date, default=date.today)
 
+class News(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200))
+    text = db.Column(db.String(3500))
+    date = db.Column(db.Date, default=date.today)
+
+class Currency(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(60))
+    close = db.Column(db.String(20))
+    date = db.Column(db.Date, default=date.today)
+
+
+
 
 

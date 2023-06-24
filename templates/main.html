@@ -12,15 +12,14 @@
 
 
 <body>
-<div class="head">
-    <div class="headerobjectswrapper">
-        <div class="weatherforcastbox"><span style="font-style: italic;">Weatherforcast for the next 24 hours: Plenty of Sunshine</span><br><span>Wind: 7km/h SSE; Ther: 21°C; Hum: 82%</span>
-        </div>
-        <header>tbilisi morning globe</header>
-    </div>
+{% extends 'base.html' %}
 
-    <div class="subhead">Tbilisi, tuesday morning, june 20, 2023</div>
-</div>
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+
+
 <div class="collumn">
     <div class="head"><span class="headline hl3">Latest stock news</span>
         <p><span class="headline hl4">Latest trending stocks</span></p>
@@ -41,7 +40,8 @@
             {%for stock in stocks_left_table%}
             <tr>
                 <td>
-                    <span class="header-cell">{{stock.symbol}}</span><br>
+                    <a href="/stockinfo/{{stock.symbol}}"><span class="header-cell">{{stock.symbol}}</span><br></a>
+
                     <span class="data-cell">{{stock.name}}</span>
                 </td>
                 {% set close_float = stock.close | float %}
@@ -56,36 +56,20 @@
             <!-- More table rows -->
             </tbody>
         </table>
-        <div class="head"><span class="headline hl6" style="margin-top: 30px">What's News-</span>
+
+        <div class="head"><a href="/news"><span class="headline hl6" style="margin-top: 30px">What's News-</span></a>
             <p><span class="headline hl4" style="margin-top: 10px">Business and Finance</span></p>
         </div>
+        {%for n in news%}
+        <div class="text-block">
+            <h2 class="news-header" style="text-align: center; line-height: 1.5">{{n.name}}</h2>
+            <p>{{n.text}}</p>
+        </div>
+        {%endfor%}
 
-        <div class="text-block">
-            <h2 class="news-header" style="text-align: center;">Header 1 </h2>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum."</p>
-        </div>
-        <div class="text-block">
-            <h2 class="news-header">Header 2</h2>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum."</p>
-        </div>
+
+
+
     </div>
 
 </div>
@@ -213,11 +197,7 @@
 
 </div>
 <div class="collumn">
-    <div class="head"><span class="headline hl3">Latest stock news</span>
-        <p><span class="headline hl4">Latest trending stocks</span></p>
-        <!--        graph html-->
-        <canvas id="StockChart" style="width:1000px; height:700px; margin-top: 10px; margin-bottom: 50px"></canvas>
-    </div>
+
 
 
     <div class="column column-1">
@@ -227,34 +207,19 @@
             <tr>
                 <th>Symbol</th>
                 <th class="column-2">Last</th>
-                <th class="column-3">Change</th>
             </tr>
             </thead>
 
             <tbody>
+            {%for curr in currs%}
             <tr>
                 <td>
-                    <span class="header-cell">TSLA</span><br>
-                    <span class="data-cell">Tesla inc</span>
+                    <span class="header-cell">{{curr.name}}</span><br>
+
                 </td>
-                <td>$260</td>
-                <td>+4.23</td>
+                <td>{{curr.close}}</td>
             </tr>
-            <tr>
-                <td>TSLA</td>
-                <td>$260</td>
-                <td>+4.23</td>
-            </tr>
-            <tr>
-                <td>TSLA</td>
-                <td>$260</td>
-                <td>+4.23</td>
-            </tr>
-            <tr>
-                <td>TSLA</td>
-                <td>$260</td>
-                <td>+4.23</td>
-            </tr>
+            {%endfor%}
             </tbody>
 
             <!-- More table rows -->
@@ -264,29 +229,8 @@
 </div>
 <!--Graph script-->
 
+{% endblock %}
 
-<script>
-    const ctx = document.getElementById('StockChart');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["pink", "red", "blue", "green", "black"],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1,
-                borderColor: "#666666"
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
 
 
 

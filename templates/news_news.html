@@ -1,0 +1,32 @@
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/news.css">
+    <title>Newspaper Style Design Experiment</title>
+    <meta name="viewport" content="width=device-width">
+
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Home Page</h1>
+    <p>This is the content specific to the home page.</p>
+
+<div class="content-text">
+    <div class="headerobjectswrapper">
+        <header style="text-align: center;margin-bottom: 60px; font-family: 'Droid Serif', serif;border-bottom: #2f2f2f;border-bottom-width: 2px">{{news.name}}</header>
+    </div>
+
+    <div class="big-text" style="text-align: center">
+
+        <p>{{news.text}}</p>
+    </div>
+</div>
+
+</body>
+{% endblock %}
+</html>

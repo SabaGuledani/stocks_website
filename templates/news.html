@@ -1,0 +1,36 @@
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/news.css">
+    <title>Newspaper Style Design Experiment</title>
+    <meta name="viewport" content="width=device-width">
+
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="collumns">
+        {%for n in news%}
+
+        <div class="collumn_news">
+            <div class="head"><a href="/news/{{ n.id }}"><span class="headline hl3">{{ n.name }}</span></a>
+                </div>
+            {{n.text}} </p></div>
+
+        {%endfor%}
+
+
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
+{%endblock%}
